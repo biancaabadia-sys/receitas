@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receitas | Meu Blog de Receitas</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo"></div>
+    <nav class="nav">
+      <a href="sobre.html">Sobre</a>
+      <a href="receitas.html" class="active">Receitas</a>
+      <a href="contato.html">Contato e Comentários</a>
+      <a href="../index.html">Home</a>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <input
+      type="text"
+      id="searchInput"
+      class="search-bar"
+      placeholder="Pesquisar receita..."
+    >
+
+    <p id="resultado" class="search-result"></p>
+
+    <section class="recipe-category">
+      <h2>Receitas Doces</h2>
+
+      <div class="recipes-grid">
+
+        <a href="receitas/bolo-cenoura.html"
+           class="recipe-card"
+           data-nome="Bolo de cenoura">
+          Bolo de cenoura
+        </a>
+
+        <a href="receitas/brigadeiro.html"
+           class="recipe-card"
+           data-nome="Brigadeiro">
+          Brigadeiro
+        </a>
+
+        <a href="receitas/salada-frutas.html"
+           class="recipe-card"
+           data-nome="Salada de frutas">
+          Salada de frutas
+        </a>
+
+        <a href="receitas/torta-limao.html"
+           class="recipe-card"
+           data-nome="Torta de limão">
+          Torta de limão
+        </a>
+
+      </div>
+    </section>
+
+    <section class="recipe-category">
+      <h2>Receitas Salgadas</h2>
+
+      <div class="recipes-grid">
+
+        <a href="receitas/pao-caseiro.html"
+           class="recipe-card"
+           data-nome="Pão caseiro">
+          Pão caseiro
+        </a>
+
+        <a href="receitas/lasanha.html"
+           class="recipe-card"
+           data-nome="Lasanha">
+          Lasanha
+        </a>
+
+        <a href="receitas/frango-assado.html"
+           class="recipe-card"
+           data-nome="Frango assado">
+          Frango assado
+        </a>
+
+        <a href="receitas/feijoada.html"
+           class="recipe-card"
+           data-nome="Feijoada">
+          Feijoada
+        </a>
+
+        <a href="receitas/panqueca.html"
+           class="recipe-card"
+           data-nome="Panqueca">
+          Panqueca
+        </a>
+
+        <a href="receitas/sopa-legumes.html"
+           class="recipe-card"
+           data-nome="Sopa de legumes">
+          Sopa de legumes
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 Meu Blog de Receitas — Projeto pessoal
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

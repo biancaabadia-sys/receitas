@@ -1,0 +1,695 @@
+/* ===================================
+   VARIÁVEIS
+=================================== */
+
+:root {
+  --cor-primaria: #b56b52;
+  --cor-secundaria: #e8a27c;
+  --cor-fundo: #fdf6ef;
+  --cor-header: #fbe8d8;
+  --cor-texto: #5c4a3d;
+  --espacamento: 20px;
+  --raio: 16px;
+}
+
+
+/* ===================================
+   RESET BÁSICO
+=================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+
+  /* Faz o rodapé ficar embaixo */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ===================================
+   CABEÇALHO / MENU
+   MOBILE FIRST
+=================================== */
+
+.header {
+  background-color: var(--cor-header);
+  padding: var(--espacamento);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--espacamento);
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f2b7a3;
+}
+
+
+/* Menu com Flexbox */
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+}
+
+.nav a {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: #7a6455;
+
+  transition: color 0.2s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--cor-primaria);
+}
+
+
+/* ===================================
+   CONTEÚDO PRINCIPAL
+=================================== */
+
+.main {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  background-color: #fffaf4;
+
+  padding: var(--espacamento);
+
+  min-height: 70vh;
+
+  /* Ocupa o espaço até o rodapé */
+  flex: 1;
+}
+
+
+/* ===================================
+   BARRA DE PESQUISA
+=================================== */
+
+.search-bar {
+  display: block;
+
+  width: 100%;
+  max-width: 500px;
+
+  margin: 0 auto 20px auto;
+
+  padding: 14px 24px;
+
+  border: none;
+  border-radius: 999px;
+
+  background-color: #f6ece1;
+
+  font-size: 14px;
+  letter-spacing: 1px;
+
+  color: #a58f7e;
+
+  text-transform: uppercase;
+}
+
+.search-bar:focus {
+  outline: 2px solid #f2c9a0;
+}
+
+
+/* Resultado da pesquisa */
+
+.search-result {
+  text-align: center;
+
+  color: var(--cor-primaria);
+
+  font-weight: bold;
+
+  margin-bottom: 20px;
+}
+
+
+/* ===================================
+   BLOCO TEXTO + IMAGEM
+=================================== */
+
+.content-block {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--espacamento);
+
+  align-items: stretch;
+
+  margin-bottom: 30px;
+}
+
+.content-text {
+  flex: 1;
+}
+
+.content-text h1 {
+  font-family: Georgia, serif;
+
+  font-size: 28px;
+
+  margin-bottom: 20px;
+
+  color: var(--cor-primaria);
+}
+
+.content-text p {
+  margin-bottom: 16px;
+
+  color: #8a7364;
+
+  font-size: 15px;
+}
+
+.content-image {
+  flex: 1;
+
+  background-color: #eaf2e6;
+
+  border-radius: var(--raio);
+
+  min-height: 260px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #a9c2a0;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+
+/* ===================================
+   CAIXA DE DESTAQUE
+=================================== */
+
+.highlight-box {
+  background-color: #fbe3d4;
+
+  border-radius: var(--raio);
+
+  padding: 30px;
+
+  text-align: center;
+}
+
+.highlight-box h2 {
+  font-family: Georgia, serif;
+
+  font-size: 20px;
+
+  margin-bottom: 10px;
+
+  color: var(--cor-primaria);
+}
+
+.highlight-box a.button {
+  display: inline-block;
+
+  margin-top: 14px;
+
+  padding: 10px 26px;
+
+  background-color: var(--cor-secundaria);
+
+  color: #fff;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  transition: background-color 0.2s ease;
+}
+
+.highlight-box a.button:hover {
+  background-color: #d98e73;
+}
+
+
+/* ===================================
+   CATEGORIAS
+=================================== */
+
+.recipe-category {
+  margin-bottom: 45px;
+}
+
+.recipe-category h2 {
+  font-family: Georgia, serif;
+
+  font-size: 22px;
+
+  color: var(--cor-primaria);
+
+  margin-bottom: 20px;
+
+  padding-bottom: 10px;
+
+  border-bottom: 1px solid #f2d9c2;
+}
+
+
+/* ===================================
+   GRID DE RECEITAS
+   MOBILE FIRST
+=================================== */
+
+.recipes-grid {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--espacamento);
+}
+
+.recipe-card {
+  background-color: #fbeee0;
+
+  border-radius: 14px;
+
+  min-height: 200px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  padding: 12px;
+
+  color: #a9927e;
+
+  font-size: 13px;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+
+  background-color: #f6ddc7;
+
+  box-shadow:
+    0 6px 16px
+    rgba(217, 142, 115, 0.18);
+}
+
+
+/* Cores dos cards */
+
+.recipe-card:nth-child(5n+1) {
+  background-color: #fbeee0;
+}
+
+.recipe-card:nth-child(5n+2) {
+  background-color: #eaf2e6;
+}
+
+.recipe-card:nth-child(5n+3) {
+  background-color: #fce4ec;
+}
+
+.recipe-card:nth-child(5n+4) {
+  background-color: #fff6da;
+}
+
+.recipe-card:nth-child(5n+5) {
+  background-color: #e6f1f5;
+}
+
+
+/* ===================================
+   PÁGINA INDIVIDUAL DA RECEITA
+=================================== */
+
+.recipe-detail {
+  max-width: 800px;
+
+  margin: 0 auto;
+}
+
+.recipe-detail h1 {
+  font-family: Georgia, serif;
+
+  color: var(--cor-primaria);
+
+  margin-bottom: 25px;
+}
+
+.recipe-detail h2 {
+  color: var(--cor-primaria);
+
+  margin-top: 25px;
+
+  margin-bottom: 15px;
+}
+
+.recipe-detail ul,
+.recipe-detail ol {
+  padding-left: 25px;
+}
+
+.recipe-detail li {
+  margin-bottom: 10px;
+}
+
+
+/* Imagem da receita */
+
+.recipe-image {
+  width: 100%;
+
+  height: 300px;
+
+  background-color: #eaf2e6;
+
+  border-radius: var(--raio);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 30px;
+
+  color: #a9c2a0;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+
+/* Botão voltar */
+
+.recipe-back {
+  display: inline-block;
+
+  margin-top: 30px;
+
+  padding: 10px 26px;
+
+  background-color: var(--cor-secundaria);
+
+  color: #fff;
+
+  border-radius: 999px;
+}
+
+
+/* ===================================
+   CONTATO E COMENTÁRIOS
+=================================== */
+
+.contact-section {
+  width: 100%;
+
+  max-width: 700px;
+
+  margin: 0 auto;
+}
+
+.contact-section h1 {
+  font-family: Georgia, serif;
+
+  font-size: 28px;
+
+  margin-bottom: 10px;
+
+  color: var(--cor-primaria);
+
+  text-align: center;
+}
+
+.contact-section p {
+  text-align: center;
+
+  color: #a58f7e;
+
+  font-size: 15px;
+
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  background-color: #fbeee0;
+
+  border-radius: var(--raio);
+
+  padding: var(--espacamento);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  margin-bottom: 16px;
+
+  border: 1px solid #ecd9c7;
+
+  border-radius: 10px;
+
+  background-color: #fff;
+
+  font-family: 'Segoe UI', Arial, sans-serif;
+
+  font-size: 14px;
+
+  color: var(--cor-texto);
+}
+
+.contact-form textarea {
+  min-height: 140px;
+
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid #f2c9a0;
+
+  border-color: var(--cor-secundaria);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #c9b8a8;
+}
+
+.contact-form .button {
+  display: block;
+
+  margin: 5px auto 0 auto;
+
+  padding: 11px 28px;
+
+  border: none;
+
+  background-color: var(--cor-secundaria);
+
+  color: #fff;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+}
+
+.contact-form .button:hover {
+  background-color: #d98e73;
+}
+
+
+/* ===================================
+   RODAPÉ
+=================================== */
+
+.footer {
+  text-align: center;
+
+  padding: 24px;
+
+  font-size: 13px;
+
+  color: #b09a89;
+
+  background-color: var(--cor-header);
+
+  width: 100%;
+
+  /* Mantém o rodapé embaixo */
+  margin-top: auto;
+}
+
+
+/* ===================================
+   TABLET / DESKTOP
+   MOBILE FIRST
+=================================== */
+
+@media (min-width: 768px) {
+
+  /* Cabeçalho */
+
+  .header {
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    padding: 20px 40px;
+  }
+
+  /* Menu */
+
+  .nav {
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    gap: 40px;
+  }
+
+  /* Conteúdo */
+
+  .main {
+    padding: 40px;
+  }
+
+  .content-block {
+    flex-direction: row;
+
+    gap: 40px;
+
+    align-items: flex-start;
+  }
+
+  .content-text {
+    flex: 1 1 400px;
+  }
+
+  .content-image {
+    flex: 1 1 300px;
+  }
+
+  /* Cards */
+
+  .recipes-grid {
+    flex-direction: row;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+  }
+
+  .recipe-card {
+    flex: 1 1 calc(33.333% - 20px);
+  }
+
+  /* Formulário */
+
+  .contact-form {
+    padding: 30px;
+  }
+}
+
+
+/* ===================================
+   DESKTOP
+=================================== */
+
+@media (min-width: 1024px) {
+
+  .recipes-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(5, 1fr);
+
+    gap: 20px;
+  }
+
+  .recipe-card {
+    min-height: auto;
+
+    aspect-ratio: 1 / 1;
+  }
+}
+.search-bar {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 30px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: #777;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.search-bar:hover {
+  border-color: #999;
+}
