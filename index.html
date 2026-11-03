@@ -43,6 +43,36 @@
       <a href="pages/receitas.html" class="button">Ver receitas</a>
     </section>
   </main>
+  
+<section id="cadastro-receita">
+    <h2>Cadastrar receita</h2>
+
+    <form id="form-receita">
+        <input type="text" id="nome" placeholder="Nome da receita" required>
+
+        <select id="categoria" required>
+            <option value="">Selecione a categoria</option>
+            <option value="Doce">Doce</option>
+            <option value="Salgada">Salgada</option>
+        </select>
+
+        <textarea id="ingredientes" placeholder="Ingredientes" required></textarea>
+
+        <textarea id="modo-preparo" placeholder="Modo de preparo" required></textarea>
+
+        <button type="submit">Cadastrar receita</button>
+    </form>
+
+    <p id="mensagem"></p>
+</section>
+
+<section id="receitas-cadastradas">
+    <h2>Receitas cadastradas</h2>
+    <div id="lista-receitas"></div>
+</section>
+
+<script src="js/receitas.js"></script>
+
 
   <footer class="footer">
     &copy; 2026 Meu Blog de Receitas — Projeto pessoal

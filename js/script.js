@@ -58,3 +58,88 @@ if (statusMsg) {
   }
 
 }
+
+const formularioReceita = document.getElementById("form-receita");
+const listaReceitas = document.getElementById("lista-receitas");
+const API_RECEITAS = "http://localhost:5000/receitas";
+
+if (formularioReceita && listaReceitas) {
+
+  async function listarReceitasAPI() {
+    try {
+      const resposta = await fetch(API_RECEITAS);
+
+      if (!resposta.ok) {
+        throw new Error("Erro ao buscar receitas.");
+      }
+
+      const receitas = await resposta.json();
+      listaReceitas.replaceChildren();
+
+      receitas.forEach(function(receita) {
+        const card = document.createElement("article");
+        const titulo = document.createElement("h3");
+        const categoria = document.createElement("p");
+        const ingredientes = document.createElement("p");
+        const preparo = document.createElement("p");
+
+        card.className = "recipe-card";
+        titulo.textContent = receita.nome;
+        categoria.textContent = "Categoria: " + receita.categoria;
+        ingredientes.textContent = "Ingredientes: " + receita.ingredientes;
+        preparo.textContent = "Modo de preparo: " + receita.modo_preparo;
+
+        card.append(titulo, categoria, ingredientes, preparo);
+        listaReceitas.appendChild(card);
+      });
+
+    } catch (erro) {
+      console.error(erro);
+    }
+  }
+
+  formularioReceita.addEventListener("submit", async function(evento) {
+    evento.preventDefault();
+
+    const mensagem = document.getElementById("mensagem");
+
+    const dados = {
+      nome: document.getElementById("nome").value.trim(),
+      categoria: document.getElementById("categoria").value,
+      ingredientes: document.getElementById("ingredientes").value.trim(),
+      modo_preparo: document.getElementById("modo-preparo").value.trim()
+    };
+
+    try {
+      const resposta = await fetch(API_RECEITAS, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dados)
+      });
+
+      const resultado = await resposta.json();
+
+      if (!resposta.ok) {
+        throw new Error(resultado.erro || "Erro ao cadastrar receita.");
+      }
+
+      if (mensagem) {
+        mensagem.textContent = "Receita cadastrada com sucesso!";
+      }
+
+      formularioReceita.reset();
+      await listarReceitasAPI();
+
+    } catch (erro) {
+      console.error(erro);
+
+      if (mensagem) {
+        mensagem.textContent = erro.message;
+      }
+    }
+  });
+
+  listarReceitasAPI();
+}
